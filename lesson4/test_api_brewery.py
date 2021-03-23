@@ -67,20 +67,22 @@ class TestBreweryList():
             assert len(query) == 15
 
 
-
-    @pytest.mark.parametrize('id, name', [('2268', 'Laughing Dog Brewing')])
-    #@pytest.mark.parametrize('id, name', [('3068', 'Sea Dog Brewing')])
-    def test_random(self, id, name):
-        response = requests.get(self.base_url + 'autocomplete?query=dog')
-        assert response.status_code == HTTPStatus.OK
-        searches = json.loads(response.content)
-        print (searches)
-        #assert len(searches) == 15
-        #print (type(searches))
-        assert searches[3] == {'id' : id, 'name' : name}
-       # assert searches[5] == {'id' : id, 'name' : name}
-
-
+    #
+    # @pytest.mark.parametrize('ids, names',
+    #     [
+    #         {'id1': 2268, 'id2': 3068},
+    #         {'name1':'Laughing Dog Brewing', 'name2': 'Sea Dog Brewing'}
+    #     ]
+    # )
+    # def test_random(self, ids, names):
+    #     response = requests.get(self.base_url + 'autocomplete?query=dog')
+    #     assert response.status_code == HTTPStatus.OK
+    #     searches = json.loads(response.content)
+    #     print (ids)
+    #     #print (searches)
+    #     #assert searches[3] == {'id': ids.values()['id1'], 'name': names.values()['name1']}
+    #     #print (searches[5])
+    #     #assert searches[5] == {'id': ids['id2'], 'name': names['name2']}
 
 
 

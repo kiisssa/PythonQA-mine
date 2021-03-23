@@ -3,7 +3,6 @@ import requests
 import json
 import unittest.mock
 from http import HTTPStatus
-import builtins
 
 class TestBreedList():
     base_url = 'https://dog.ceo/api'
@@ -17,7 +16,7 @@ class TestBreedList():
     def test_is_breed_exist(self):
         response = requests.get(self.base_url + '/breeds/list/all')
         assert response.status_code == 200
-       # print (json.loads(response.content))
+        print (json.loads(response.content))
         breeds = json.loads(response.content)['message']
         assert input() in breeds['terrier']
 
@@ -40,6 +39,7 @@ class TestBreedList():
         response = requests.get(self.base_url + '/breed/hound/list')
         assert response.status_code == HTTPStatus.OK
         sub_breeds = json.loads(response.content)['message']
+        print (sub_breeds)
         assert sub_breed in sub_breeds
         print (sub_breeds)
 
